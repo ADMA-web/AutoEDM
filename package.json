@@ -1,0 +1,20 @@
+{
+  "name": "autoedm",
+  "version": "1.0.0",
+  "description": "automated edm builder",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "edm"
+  ],
+  "author": "fre",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-watch": "^5.0.1",
+    "pug": "^2.0.3"
+  }
+}

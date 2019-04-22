@@ -1,0 +1,17 @@
+-
+	function attr( attrName, attrValue ) {
+		return 'attrName="attrValue"';
+	}
+
+
+mixin table()
+	table(align='center', border='0', cellpadding='0', width='100%')
+		tbody
+			if block
+				block
+
+
+mixin td()
+	td(align='center', valign='top')
+		if block
+			block

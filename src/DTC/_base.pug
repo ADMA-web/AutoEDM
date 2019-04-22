@@ -1,0 +1,12 @@
+- var themeColorPrimary = '#553278';
+
+include ./../mixins/tables
+
+html
+	head
+		include head
+	body(bgcolor='#F6F6F6')
+		span.preheader PREHEADER
+		+table()
+			tr
+				+td()(class="test")
