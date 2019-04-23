@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-	//watch = require('gulp-watch'),
 	pug = require('gulp-pug')
 
 var config = {
@@ -24,6 +23,13 @@ gulp.task('watch', function(){
 		} )
 });
 
+function pugify() {
+	return gulp
+		.src( config.pug.srcPath )
+		.pipe( pug() )
+		.pipe( gulp.dest( config.pug.outputPath ) );
+}
+
 
 //gulp.watch( config.pug.srcPath , ['pug']);
 
@@ -37,3 +43,5 @@ function defaultTask(done) {
 	gulp.watch( config.pug.srcPath, gulp.task('pug') )
   done();
 }
+
+exports.pugify = pugify;
