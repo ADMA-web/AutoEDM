@@ -15,14 +15,14 @@ mixin intro( content )
 				td(height='17' style='font-size:1px;line-height:1px;border-collapse:collapse;mso-line-height-rule:exactly;')
 					img(border='0' height='1' name='Cont_0' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;border-width:0 !important;outline-style:none !important;' width='1')
 			tr
-				td(style='font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:21px;color:#000000;text-align:left;border-collapse:collapse;mso-line-height-rule:exactly;') content
+				td(style='font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:21px;color:#000000;text-align:left;border-collapse:collapse;mso-line-height-rule:exactly;') #{content}
 			tr
 				td(height='17' style='font-size:1px;line-height:1px;border-collapse:collapse;mso-line-height-rule:exactly;')
 					img(border='0' height='1' name='Cont_0' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;border-width:0 !important;outline-style:none !important;' width='1')
 	// /intro
 
-
-mixin contentModuleHorizontal( title, content, cta, ctaUrl, imgUrl )
+// requires an object with values: title, content, cta, ctaUrl, imgUrl
+mixin contentModuleHorizontal( values )
 	// content module horizontal
 	table(align='center' border='0' cellpadding='0' cellspacing='0' width='100%')
 		tbody
@@ -36,8 +36,8 @@ mixin contentModuleHorizontal( title, content, cta, ctaUrl, imgUrl )
 										tbody
 											tr
 												td(align='center' valign='top')
-													a(href=#{ctaUrl} target='_blank')
-														img(alt=#{title} border='0' height='190' name='Cont_9' src=#{imgUrl} style='display:block;' title='DGA Board Purpose Image' width='269')
+													a(href=values.ctaUrl target='_blank')
+														img(alt=values.title border='0' height='190' name='Cont_9' src=values.imgUrl style='display:block;' values.title='DGA Board Purpose Image' width='269')
 											tr
 												td(height='15' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='https://i4.createsend1.com/ei/j/0F/D82/FDC/131853/csimport/7325147_spacer_3.gif' style='display:block;' width='1')
@@ -53,23 +53,24 @@ mixin contentModuleHorizontal( title, content, cta, ctaUrl, imgUrl )
 												td(height='7' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='https://i4.createsend1.com/ei/j/0F/D82/FDC/131853/csimport/7325147_spacer_3.gif' style='display:block;' width='1')
 											tr
-												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') title
+												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') #{values.title}
 											tr
 												td(height='7' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='https://i4.createsend1.com/ei/j/0F/D82/FDC/131853/csimport/7325147_spacer_3.gif' style='display:block;' width='1')
 											tr
 												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px;color:#000000; text-align:left;')
-													| content
+													| #{values.content}
 											tr
 												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px; text-align:left;')
-													a(href=#{ctaUrl} style='text-decoration:none;' target='_blank')
-														strong cta
+													a(href=ctaUrl style='text-decoration:none;' target='_blank')
+														strong #{values.cta}
 			tr
 				td(height='17' style='font-size:1px;line-height:1px;border-collapse:collapse;mso-line-height-rule:exactly;')
 					img(border='0' height='1' src='https://i1.createsend1.com/ei/j/0F/D82/FDC/131853/csimport/spacer_0.gif' style='display:block;border-width:0 !important;outline-style:none !important;' width='1')
 	// content module horizontal
 
-mixin contentModuleVertical( title1, content1, cta1, title2, content2, cta2 )
+// requires 2 objects with values: title, content, cta, ctaUrl, imgUrl
+mixin contentModuleVertical( values1, values2 )
 	// content module vertical
 	table(align='center' border='0' cellpadding='0' cellspacing='0' width='100%')
 		tbody
@@ -83,22 +84,22 @@ mixin contentModuleVertical( title1, content1, cta1, title2, content2, cta2 )
 										tbody
 											tr
 												td(align='center' valign='top')
-													a(href='http://datagovernanceaus.com.au/2018-event-roundup/' target='_blank')
-														img(border='0' height='190' src='http://datagovernanceaus.com.au/wp-content/uploads/2016/07/Year-in-review_edm.jpg' style='display:block;' width='269')
+													a(href=values1.ctaUrl target='_blank')
+														img(border='0' height='190' src=values1.imgUrl style='display:block;' width='269' alt=values1.title)
 											tr
 												td(height='15' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;' width='1')
 											tr
-												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') title1
+												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') #{values1.title}
 											tr
 												td(height='7' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;' width='1')
 											tr
-												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px;color:#000000; text-align:left;') content2
+												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px;color:#000000; text-align:left;') #{values1.content}
 											tr
 												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px; text-align:left;')
 													strong
-														a(href='http://datagovernanceaus.com.au/2018-event-roundup/' style='text-decoration:none;' target='_blank') cta1
+														a(href=values1.ctaUrl style='text-decoration:none;' target='_blank') #{values1.cta}
 					//if gte mso 9
 						td(valign='top')
 					table.em_wrapper(align='right' border='0' cellpadding='0' cellspacing='0' width='269')
@@ -109,22 +110,22 @@ mixin contentModuleVertical( title1, content1, cta1, title2, content2, cta2 )
 										tbody
 											tr
 												td(align='center' valign='top')
-													a(href='http://datagovernanceaus.com.au/the-digital-platform-inquiry-dga/' target='_blank')
-														img(border='0' height='190' src='http://datagovernanceaus.com.au/wp-content/uploads/2016/07/Digital_Platform_Inquiry_edm.jpg' style='display:block;' width='269')
+													a(href=values2.ctaUrl target='_blank')
+														img(border='0' height='190' src=values2.imgUrl style='display:block;' width='269' alt=values2.title)
 											tr
 												td(height='15' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;' width='1')
 											tr
-												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') title2
+												td(style='font-family:Helvetica, Arial, sans-serif; font-size:18px;line-height:22px;color:#000000; text-align:left;') #{values2.title}
 											tr
 												td(height='7' style='font-size:1px; line-height:1px;')
 													img(alt='' border='0' height='1' src='http://i3.createsend1.com/ti/j/B1/C4B/218/103104/images/spacer.gif' style='display:block;' width='1')
 											tr
-												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px;color:#000000; text-align:left;') content2
+												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px;color:#000000; text-align:left;') #{values2.content}
 											tr
 												td(style='font-family:Helvetica, Arial, sans-serif; font-size:13px;line-height:21px; text-align:left;')
 													a(href='http://datagovernanceaus.com.au/the-digital-platform-inquiry-dga/' style='text-decoration:none;' target='_blank')
-														strong cta2
+														a(href=values2.ctaUrl style='text-decoration:none;' target='_blank') #{values2.cta}
 			tr
 				td
 					table(align='center' border='0' cellpadding='0' cellspacing='0' width='100%')
