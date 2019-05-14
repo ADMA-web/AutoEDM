@@ -3,8 +3,8 @@ var gulp = require('gulp'),
 
 var config = {
 	'pug': {
-		'srcPath': 'src/**/*.pug',
-		'outputPath': 'output/html'
+		'srcPath': 'pug/**/*.pug',
+		'outputPath': 'static/html'
 	}
 };
 

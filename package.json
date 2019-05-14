@@ -4,6 +4,7 @@
   "description": "automated edm builder",
   "main": "index.js",
   "scripts": {
+    "start": "browser-sync start --server 'src' --files 'src' --single",
     "gulp": "gulp"
   },
   "keywords": [
@@ -12,6 +13,7 @@
   "author": "fre",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.26.4",
     "gulp": "^4.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-watch": "^5.0.1",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0"
   }
 }

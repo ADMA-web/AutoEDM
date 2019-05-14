@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.set( 'view engine', 'pug' );
 //app.set('views', path.join(__dirname, '/output'));
 
-app.use( express.static( 'public' ) );
+app.use( express.static( 'static' ) );
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
