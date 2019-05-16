@@ -4,8 +4,8 @@
   "description": "automated edm builder",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --server 'src' --files 'src' --single",
-    "gulp": "gulp"
+    "start": "browser-sync start --server 'static/html' --files 'views' --single",
+    "dev": "gulp watch"
   },
   "keywords": [
     "edm"
