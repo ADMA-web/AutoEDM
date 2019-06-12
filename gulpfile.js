@@ -29,7 +29,9 @@ gulp.task('watch', function(){
 function pugify() {
 	return gulp
 		.src( config.pug.srcPath )
-		.pipe( pug() )
+		.pipe( pug({
+			pretty: true
+		}) )
 		.pipe( gulp.dest( config.pug.outputPath ) );
 }
 
