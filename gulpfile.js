@@ -1,11 +1,12 @@
-var gulp = require('gulp'),
-	//watch = require('gulp-watch'),
-	pug = require('gulp-pug')
+var gulp = require( 'gulp' ),
+	pug = require( 'gulp-pug' ),
+	browserSync = require( 'browser-sync' )
+	reload = browserSync.reload
 
 var config = {
 	'pug': {
-		'srcPath': 'src/**/*.pug',
-		'outputPath': 'output/html'
+		'srcPath': 'pug/**/*.pug',
+		'outputPath': 'static/html'
 	}
 };
 
@@ -21,19 +22,17 @@ gulp.task('watch', function(){
 	gulp.watch( config.pug.srcPath )
 		.on( 'change', function( path, stats ) {
 			console.log( path );
+			pugify();
 		} )
 });
 
-
-//gulp.watch( config.pug.srcPath , ['pug']);
-
-
-gulp.task('default', defaultTask);
-
-function defaultTask(done) {
-	// gulp.src( config.pug.srcPath )
-	//   .pipe(pug())
-	//   .pipe(gulp.dest(config.pug.outputPath))
-	gulp.watch( config.pug.srcPath, gulp.task('pug') )
-  done();
+function pugify() {
+	return gulp
+		.src( config.pug.srcPath )
+		.pipe( pug({
+			pretty: true
+		}) )
+		.pipe( gulp.dest( config.pug.outputPath ) );
 }
+
+exports.pugify = pugify;
