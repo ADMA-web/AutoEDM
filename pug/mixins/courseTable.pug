@@ -1,3 +1,24 @@
-mixin courseTable( rows )
-	each row in rows
-		
+mixin courseTable2( numRows )
+  - var num = numRows
+  // course table
+  table(align='center', border='0', cellpadding='0', cellspacing='0', width='100%')
+    tr
+      td(valign='top')
+        table(align='center', border='0', cellpadding='0', cellspacing='0', width='100%')
+          tr
+            td(valign='top')
+              table(align='center', border='0', cellpadding='0', cellspacing='0', width='100%')
+                while num > 0
+                  tr
+                  if (num%2) === 0
+                    td.tg-ufnn(height='35' style="text-align: center;width: 50%;background-color: #f4f4f4;" width="50%" align="center")
+                      a(href='https://www.adma.com.au/iq?utm_medium=Email&utm_source=IQ&utm_campaign=IQ&content=UpcomingCourses', name='Privacy &amp; Marketing DEF', style='color: #ff4421; line-height: 14px; font-family: Helvetica, Arial, sans-serif; font-size: 12px;font-weight: bold;', target='_blank') Privacy &amp; Marketing Compliance
+                    td.tg-ufnn(height='35' style="text-align: center;width: 50%;background-color: #ffffff;" width="50%" align="center")
+                      a(href='https://www.adma.com.au/iq?utm_medium=Email&utm_source=IQ&utm_campaign=IQ&content=UpcomingCourses', name='Privacy &amp; Marketing DEF', style='color: #ff4421; line-height: 14px; font-family: Helvetica, Arial, sans-serif; font-size: 12px;font-weight: bold;', target='_blank') Digital Marketing Certificate
+                  else
+                    td.tg-ufnn(height='35' style="text-align: center;width: 50%;background-color: #ffffff;" width="50%" align="center")
+                      a(href='https://www.adma.com.au/iq?utm_medium=Email&utm_source=IQ&utm_campaign=IQ&content=UpcomingCourses', name='Privacy &amp; Marketing DEF', style='color: #ff4421; line-height: 14px; font-family: Helvetica, Arial, sans-serif; font-size: 12px;font-weight: bold;', target='_blank') Digital Marketing Certificate
+                    td.tg-ufnn(height='35' style="text-align: center;width: 50%;background-color: #f4f4f4;" width="50%" align="center")
+                      a(href='https://www.adma.com.au/iq?utm_medium=Email&utm_source=IQ&utm_campaign=IQ&content=UpcomingCourses', name='Privacy &amp; Marketing DEF', style='color: #ff4421; line-height: 14px; font-family: Helvetica, Arial, sans-serif; font-size: 12px;font-weight: bold;', target='_blank') Privacy &amp; Marketing Compliance
+                  - num--
+  // /course table
