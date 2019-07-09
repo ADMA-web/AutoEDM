@@ -1,3 +1,8 @@
+# ignore compiled HTML
+static/html/
+
+
+
 # Logs
 logs
 *.log
