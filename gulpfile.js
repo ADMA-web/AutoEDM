@@ -1,7 +1,7 @@
-var gulp = require( 'gulp' ),
-	pug = require( 'gulp-pug' ),
-	browserSync = require( 'browser-sync' )
-	reload = browserSync.reload
+var gulp = require('gulp'),
+	pug = require('gulp-pug'),
+	browserSync = require('browser-sync')
+reload = browserSync.reload
 
 var config = {
 	'pug': {
@@ -10,29 +10,35 @@ var config = {
 	}
 };
 
-gulp.task('pug', function(){
-	return gulp.src( config.pug.srcPath )
+function build(cb) {
+	pugify();
+	cb();
+}
+
+gulp.task('pug', function () {
+	return gulp.src(config.pug.srcPath)
 		.pipe(pug({
 			pretty: true
 		}))
-		.pipe(gulp.dest( config.pug.outputPath ))
+		.pipe(gulp.dest(config.pug.outputPath))
 });
 
-gulp.task('watch', function(){
-	gulp.watch( config.pug.srcPath )
-		.on( 'change', function( path, stats ) {
-			console.log( path );
+gulp.task('watch', function () {
+	gulp.watch(config.pug.srcPath)
+		.on('change', function (path, stats) {
+			console.log(path);
 			pugify();
-		} )
+		})
 });
 
 function pugify() {
 	return gulp
-		.src( config.pug.srcPath )
-		.pipe( pug({
+		.src(config.pug.srcPath)
+		.pipe(pug({
 			pretty: true
-		}) )
-		.pipe( gulp.dest( config.pug.outputPath ) );
+		}))
+		.pipe(gulp.dest(config.pug.outputPath));
 }
 
+exports.default = build;
 exports.pugify = pugify;
